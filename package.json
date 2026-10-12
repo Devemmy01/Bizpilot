@@ -1,0 +1,36 @@
+{
+  "name": "bizpilot",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "firebase": "latest",
+    "firebase-admin": "latest",
+    "lucide-react": "latest",
+    "mongodb": "latest",
+    "next": "^16.3.0",
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "resend": "latest",
+    "web-push": "^3.6.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "latest",
+    "@tailwindcss/forms": "^0.5.10",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/web-push": "^3.6.4",
+    "autoprefixer": "latest",
+    "eslint": "latest",
+    "eslint-config-next": "^16.3.0",
+    "postcss": "latest",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.9.3"
+  }
+}
