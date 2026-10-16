@@ -623,7 +623,7 @@ export function DashboardClient() {
         if (reg) {
           reg.showNotification("Bizpilot Demo Alert", {
             body: "This is a simulated push alert for testing low stock/financial entries!",
-            icon: "/bizpilot-mark.svg",
+            icon: "/icons/icon-192.png",
             badge: "/bizpilot-mark.svg",
           });
           setStatus("Test alert simulated successfully!");

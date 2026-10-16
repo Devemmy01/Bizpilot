@@ -38,7 +38,7 @@ export async function POST(request: Request) {
       customizations: {
         title: "Bizpilot Analytics",
         description: "Monthly subscription — Full analytics & report generation",
-        logo: "/bizpilot-mark.svg",
+        logo: "/icons/icon-512.png",
       },
       meta: {
         userId: decodedToken.uid,

@@ -1,8 +1,9 @@
-const CACHE_NAME = "bizpilot-cache-v1";
+const CACHE_NAME = "bizpilot-cache-v2";
 const ASSETS_TO_CACHE = [
   "/",
   "/dashboard",
   "/bizpilot-mark.svg",
+  "/icons/icon-192.png",
 ];
 
 // Install Event
@@ -71,7 +72,7 @@ self.addEventListener("push", (event) => {
 
   const options = {
     body: data.body,
-    icon: "/bizpilot-mark.svg",
+    icon: "/icons/icon-192.png",
     badge: "/bizpilot-mark.svg",
     vibrate: [100, 50, 100],
     data: {

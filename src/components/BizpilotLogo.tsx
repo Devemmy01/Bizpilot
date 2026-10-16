@@ -8,11 +8,11 @@ export function BizpilotLogo({ compact = false }: BizpilotLogoProps) {
   return (
     <div className="flex items-center gap-3">
       <Image
-        src="/bizpilot-mark.svg"
+        src="/icons/icon-192.png"
         alt="Bizpilot"
         width={compact ? 36 : 48}
         height={compact ? 36 : 48}
-        className={compact ? "h-9 w-9" : "h-12 w-12"}
+        className={compact ? "h-9 w-9 rounded-lg" : "h-12 w-12 rounded-xl"}
       />
       {!compact && (
         <div>
