@@ -25,6 +25,17 @@ import {
 } from "@/lib/calculations";
 import { isSubscriptionActive } from "@/lib/subscription";
 import { getFirebaseAuth, isFirebaseConfigured } from "@/lib/firebase/client";
+
+const AUTH_ERROR_MESSAGES: Record<string, string> = {
+  "auth/email-already-in-use": "An account with this email already exists. Please sign in instead.",
+  "auth/invalid-credential": "Incorrect email or password.",
+  "auth/wrong-password": "Incorrect email or password.",
+  "auth/user-not-found": "No account found with this email. Please register first.",
+  "auth/invalid-email": "Please enter a valid email address.",
+  "auth/weak-password": "Password must be at least 6 characters.",
+  "auth/too-many-requests": "Too many attempts. Please wait a moment and try again.",
+  "auth/network-request-failed": "Network error. Check your connection and try again.",
+};
 import { AuthScreen } from "@/components/dashboard/AuthScreen";
 import { OnboardingScreen } from "@/components/dashboard/OnboardingScreen";
 import { AppShell } from "@/components/dashboard/AppShell";
@@ -677,9 +688,13 @@ export function DashboardClient() {
           setStatus("Account registered and signed in.");
         }
       } catch (err: unknown) {
-        console.error(err);
-        const msg = err instanceof Error ? err.message : "Auth action failed.";
-        setStatus(msg);
+        const code = (err as { code?: string })?.code ?? "";
+        const friendly = AUTH_ERROR_MESSAGES[code];
+        if (code === "auth/email-already-in-use") {
+          setAuthMode("login");
+        }
+        if (!friendly) console.error(err);
+        setStatus(friendly ?? (err instanceof Error ? err.message : "Auth action failed."));
         setLoading(false);
       }
     }
